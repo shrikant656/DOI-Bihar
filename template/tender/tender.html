@@ -1,0 +1,108 @@
+<div ng-controller="tenderController as tndrCntrl">
+	<!-- <div  data-ng-include="'template/page-title-breadcrumb.html'"></div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="container"> 
+    		<div class="two-txt-top clearfix">   		
+                <h2 class="page_head full_subpg_head">Active Tenders</h2>
+                <a href="#" class="btn btn-login guppercase whiteTxt fR scndTxtTop">Archived Tenders</a>
+            </div>
+            <div class="clearfix scndheader">
+                	<div class="col-xs-12 dma_application_filters">
+                              <div class="form-group">
+                                 The latest Tender documents issued by various Government Departments, Directorates, Organisations, Institutions and local bodies of Government eProcurement System are listed here.
+
+                              </div>
+                    </div>                    
+                    <div class=" col-xs-12 dma_application_search">
+                    		<div class="form-inline pull-left">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search" ng-model="search.title">
+                              </div>
+                            </div>
+                    		<div class="form-inline pull-right">
+                              <div class="form-group fR">
+                                <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="entryLimit" max-size="noOfPages" class="pagination-sm removemargin" boundary-link-numbers="true" rotate="false" ></ul>
+                              </div>
+                            </div>
+                    </div>
+              </div>
+            <div class="table-responsive hometd hidden-xs" style="margin-top: 30px">
+            <!-- to be displayed for desktop and ipad-->
+                <table id="resp" class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th class="text-center"><a ng-click="reverseSort = !reverseSort">Sr. No</a></th>
+                      <th class="text-center"><a ng-click="reverseSort = !reverseSort">Title</a></th>
+                      <th class="text-center"><a ng-click="reverseSort = !reverseSort">Tender ID</a></th>
+                      <th class="text-center"><a ng-click="reverseSort = !reverseSort">Organisation</a></th>
+                      <th class="text-center"><a ng-click="reverseSort = !reverseSort">Opening Date</a></th>
+                      <th class="text-center"><a ng-click="reverseSort = !reverseSort">Closing Date</a></th>
+                      <th class="text-center"><a ng-click="reverseSort = !reverseSort">Status</a></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="item in filtered = items | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit"> 
+                      <td class="text-center"> {{filtered.indexOf(item) + 1}}</td>
+                      <td class="text-left"> {{item.title}}</td>
+                      <td class="text-center"> {{item.tenderID}}</td>
+                      <td class="text-left"> {{item.organisation}}</td>
+                      <td class="text-center"> {{item.openingDate}}</td>
+                      <td class="text-center"> {{item.closingDate}}</td>
+                      <td class="text-center"> {{item.status}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="pagination-blk">
+	                <div class="container"> 
+	                    <div class="fL">
+	                        <span class="totalrecrds fL"><strong>Total Records: {{filtered.length}}</strong></span>
+	                    </div>
+	                    <div class="fR">
+	                        <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="entryLimit" max-size="noOfPages" class="pagination-sm" boundary-link-numbers="true" rotate="false" ></ul>
+	                    </div>
+	                </div>
+	            </div>
+
+            </div>
+            <!-- end of divs-->
+            
+            <!-- will be displayed for mobile device only-->
+            <div class="table visible-xs" >
+            	<div class="table_content clickable-row" data-href='view-application.html'>
+                    <div class="col-md-3 col-xs-4"><strong>#</strong></div>
+                    <div class="col-md-3 col-xs-8"><a class="links" href="view-application.html">2312248</a></div>
+                    <div class="col-md-3 col-xs-4"><strong>Request Type</strong></div>
+                    <div class="col-md-3 col-xs-8">Connection</div>
+                    <div class="col-md-3 col-xs-4"><strong>Date</strong></div>
+                    <div class="col-md-3 col-xs-8">12/03/16</div>
+                    <div class="col-md-3 col-xs-4"><strong>Contact Details</strong></div>
+                    <div class="col-md-3 col-xs-8"><span>Mr Ram Verma</span><br/>
+                          <span>Ayyapkakam, Plot #4445, TNHB, Main Road, Bangaluru - 343435</span><br/>
+                          <span class="dma_application_call"><i class="fa fa-phone" aria-hidden="true"></i> +91 98200 98200</span> <br/><span> <i class="fa fa-envelope" aria-hidden="true"></i> ram.verma@gmail.com</span></div>
+                    <div class="col-md-3 col-xs-4"><strong>Status</strong></div>
+                    <div class="col-md-3 col-xs-8">Open</div>
+                </div>
+                <div class="table_content clickable-row" data-href='view-application.html'>
+                    <div class="col-md-3 col-xs-4"><strong>#</strong></div>
+                    <div class="col-md-3 col-xs-8"><a class="links" href="view-application.html">2312248</a></div>
+                    <div class="col-md-3 col-xs-4"><strong>Request Type</strong></div>
+                    <div class="col-md-3 col-xs-8">Connection</div>
+                    <div class="col-md-3 col-xs-4"><strong>Date</strong></div>
+                    <div class="col-md-3 col-xs-8">12/03/16</div>
+                    <div class="col-md-3 col-xs-4"><strong>Contact Details</strong></div>
+                    <div class="col-md-3 col-xs-8"><span>Mr Ram Verma</span><br/>
+                          <span>Ayyapkakam, Plot #4445, TNHB, Main Road, Bangaluru - 343435</span><br/>
+                          <span class="dma_application_call"><i class="fa fa-phone" aria-hidden="true"></i> +91 98200 98200</span> <br/><span> <i class="fa fa-envelope" aria-hidden="true"></i> ram.verma@gmail.com</span></div>
+                    <div class="col-md-3 col-xs-4"><strong>Status</strong></div>
+                    <div class="col-md-3 col-xs-8">Open</div>
+                </div>
+            </div>
+            
+            <!--end of div-->
+      
+     </div>     
+  </div>
+</div>
+
