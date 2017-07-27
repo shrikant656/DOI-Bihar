@@ -1,0 +1,135 @@
+<div ng-controller="HomeController">
+<div class="container">
+  <h1>Hi {{user.firstName}}!</h1>
+  <ul>
+      <li ng-repeat="user in vm.allUsers">
+          {{user.username}} ({{user.firstName}} {{user.lastName}})
+          - <a ng-click="vm.deleteUser(user.id)">Delete</a>
+      </li>
+  </ul> 
+   <div class="container-fluid">
+    <div class="row bc_row">
+      <div class="container">
+        <ul class="fR doi-adminlogout">
+        	<li>Welcome {{user.firstName}}!</li>
+        	<li><a ui-sref="login" class="logouttxt">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div> 
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="container"> 
+    		<div>   		
+                <h2 class="page_head full_subpg_head">Housing Department: List of MoUs</h2>
+            </div>
+            
+            <div class="table-responsive hometd hidden-xs" style="margin-top: 30px">
+            <!-- to be displayed for desktop and ipad-->
+                <table id="resp" class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Reference ID</th>
+                      <th>Name of Investor</th>
+                      <th>Name of Company</th>
+                      <th>Status</th>
+                      <th>Last Modified</th>
+                      <th>Investment (Rs. in Crs)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class='clickable-row' ng-click="reviewredirect()">
+                      <td>2312246</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                    </tr>
+                    <tr class='clickable-row' ng-click="reviewredirect()">
+                      <td>2312246</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                    </tr>
+                    <tr class='clickable-row' ng-click="reviewredirect()">
+                      <td>2312246</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                    </tr>
+                    <tr class='clickable-row' ng-click="reviewredirect()">
+                      <td>2312246</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                    </tr>
+                    <tr class='clickable-row' ng-click="reviewredirect()">
+                      <td>2312246</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                    </tr>
+                    <tr class='clickable-row' ng-click="reviewredirect()">
+                      <td>2312246</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                      <td>Connection</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <!-- end of divs-->
+            
+            <!-- will be displayed for mobile device only-->
+            <div class="table visible-xs" >
+            	<div class="table_content clickable-row" data-href='view-application.html'>
+                    <div class="col-md-3 col-xs-4"><strong>#</strong></div>
+                    <div class="col-md-3 col-xs-8"><a class="links" href="view-application.html">2312248</a></div>
+                    <div class="col-md-3 col-xs-4"><strong>Request Type</strong></div>
+                    <div class="col-md-3 col-xs-8">Connection</div>
+                    <div class="col-md-3 col-xs-4"><strong>Date</strong></div>
+                    <div class="col-md-3 col-xs-8">12/03/16</div>
+                    <div class="col-md-3 col-xs-4"><strong>Contact Details</strong></div>
+                    <div class="col-md-3 col-xs-8"><span>Mr Ram Verma</span><br/>
+                          <span>Ayyapkakam, Plot #4445, TNHB, Main Road, Bangaluru - 343435</span><br/>
+                          <span class="dma_application_call"><i class="fa fa-phone" aria-hidden="true"></i> +91 98200 98200</span> <br/><span> <i class="fa fa-envelope" aria-hidden="true"></i> ram.verma@gmail.com</span></div>
+                    <div class="col-md-3 col-xs-4"><strong>Status</strong></div>
+                    <div class="col-md-3 col-xs-8">Open</div>
+                </div>
+                <div class="table_content clickable-row" data-href='view-application.html'>
+                    <div class="col-md-3 col-xs-4"><strong>#</strong></div>
+                    <div class="col-md-3 col-xs-8"><a class="links" href="view-application.html">2312248</a></div>
+                    <div class="col-md-3 col-xs-4"><strong>Request Type</strong></div>
+                    <div class="col-md-3 col-xs-8">Connection</div>
+                    <div class="col-md-3 col-xs-4"><strong>Date</strong></div>
+                    <div class="col-md-3 col-xs-8">12/03/16</div>
+                    <div class="col-md-3 col-xs-4"><strong>Contact Details</strong></div>
+                    <div class="col-md-3 col-xs-8"><span>Mr Ram Verma</span><br/>
+                          <span>Ayyapkakam, Plot #4445, TNHB, Main Road, Bangaluru - 343435</span><br/>
+                          <span class="dma_application_call"><i class="fa fa-phone" aria-hidden="true"></i> +91 98200 98200</span> <br/><span> <i class="fa fa-envelope" aria-hidden="true"></i> ram.verma@gmail.com</span></div>
+                    <div class="col-md-3 col-xs-4"><strong>Status</strong></div>
+                    <div class="col-md-3 col-xs-8">Open</div>
+                </div>
+            </div>
+            
+            <!--end of div-->
+      
+     </div>     
+  </div>
+</div>
+
+</div>
