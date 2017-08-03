@@ -2,11 +2,11 @@
 
 (function(){
 
-    angular.module('routerApp').controller('aboutController', function ($scope) {
+    angular.module('routerApp').controller('aboutController', ['$scope',function ($scope) {
 
     	$scope.title = "About Us";
 
-    })
+    }])
     
 
 })()

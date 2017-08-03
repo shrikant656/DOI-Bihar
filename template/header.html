@@ -51,7 +51,7 @@
 		              <div class="row">
 		                <div class="col-sm-12 logo_bar">
 		                  <div class="logo">
-		                    <a ui-sref="home"><img src="images/logo.png" alt="Department of Industries - Government of Bihar" title="Department of Industries - Government of Bihar" class="img-responsive" /></a>
+		                    <a ui-sref="home"><img src="images/logo_v2.png" alt="Department of Industries - Government of Bihar" title="Department of Industries - Government of Bihar" class="img-responsive" /></a>
 		                  </div>
 		                   <img src="images/emblem.png" class="img-responsive emblem hidden-xs hidden-sm" alt="Emblem" title="Emblem" />
 		                   <img src="images/make_in_bihar.jpg" class="img-responsive mkb emblem hidden-xs hidden-sm" alt="Emblem" title="Emblem" />
@@ -71,91 +71,104 @@
                         <ul class="nav navbar-nav">
                           <li class="ttz-dropdownblk"><a ui-sref="about" title="{{'aboutus' | translate}}">{{'aboutus' | translate}}</a>
                               <div class="ttz-dropdown dropdown-menu dropdownhover-bottom dd-about" id="Div1" role="menu">
-                                    <div class="ttz-dropdownlst"><a href=""  title="Overview">Overview</a></div>
-                                    <div class="ttz-dropdownlst"><a href=""  title="Department Functions">Department Functions</a></div>
-                                    <div class="ttz-dropdownlst"><a href=""  title="Basic Practices">Basic Practices</a></div>
-                                    <div class="ttz-dropdownlst"><a href="" title="Citizen Charter">Citizen Charter</a></div>
-                                    <div class="ttz-dropdownlst"><a href="" title="Photo Gallery">Photo Gallery</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="about.overview"  title="{{'overview' | translate}}">{{'overview' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="about.department-functions"  title="{{'department_funtions' | translate}}">{{'department_funtions' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="about.organizational-structure"  title="{{'org_structure' | translate}}">{{'org_structure' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="about.department-functions" title="{{'citizen_charter' | translate}}">{{'citizen_charter' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="photo-gallery" title="{{'photo_gallery' | translate}}">{{'photo_gallery' | translate}}</a></div>
                                </div>
                           </li>
                           <li class="ttz-dropdownblk"><a href="javascript:;" title="{{'explore_bihar' | translate}}">{{'explore_bihar' | translate}}</a>
                                 <div class="ttz-dropdown dropdown-menu dropdownhover-bottom dd-about" id="Div1" role="menu">
-                                    <div class="ttz-dropdownlst"><a href=""  title="EODB in Bihar">EODB in Bihar</a></div>
-                                    <div class="ttz-dropdownlst"><a href=""  title="Why Invest in Bihar">Why Invest in Bihar</a></div>
-                                    <div class="ttz-dropdownlst"><a href=""  title="Region Wise Summary">Region Wise Summary</a></div>
-                                    <div class="ttz-dropdownlst"><a href="" title="Overview">Overview</a></div>
-                                    <div class="ttz-dropdownlst"><a href="" title="District Profile">District Profile</a></div>
-                                    <div class="ttz-dropdownlst"><a href="" title="Industtrial Areas">Industtrial Areas</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref=""  title="EODB in Bihar">EODB in Bihar</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref=""  title="Why Invest in Bihar">Why Invest in Bihar</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref=""  title="Region Wise Summary">Region Wise Summary</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="" title="Overview">Overview</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="" title="District Profile">District Profile</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="" title="Industtrial Areas">Industtrial Areas</a></div>
                                 </div>
                           </li>
-                          <li><a href="javascript:;" title="Services & Schemes">Services & Schemes</a></li>
-                          <li><a href="javascript:;" title="Investors Zone">Investors Zone</a></li>
-                          <li><a href="javascript:;" title="Guidelines">Guidelines</a></li>
-                          <li><a href="javascript:;" title="Policies/Acts">Policies/Acts</a></li>
-                          <li><a href="javascript:;" title="Notice Board">Notice Board</a></li>
-                          <li class="ttz-dropdownblk"><a ui-sref="contact-us" title="Contact Us">Contact Us</a>
+                          <li class="ttz-dropdownblk">
+                              <a ui-sref="services" title="{{'services_schemes' | translate}}">{{'services_schemes' | translate}}</a>
+                              <div class="ttz-dropdown dropdown-menu dropdownhover-bottom dd-about" id="Div1" role="menu">
+                                    <div class="ttz-dropdownlst"><a ui-sref="services.single-window"  title="{{'single_window' | translate}}">{{'single_window' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="services.schemes"  title="{{'schemes' | translate}}">{{'schemes' | translate}}</a></div>
+                                </div>
+                          </li>
+                          <li><a ui-sref="javascript:;" title="{{'investors_zone' | translate}}">{{'investors_zone' | translate}}</a></li>
+                          <li><a ui-sref="guidelines" title="{{'guidelines' | translate}}">{{'guidelines' | translate}}</a></li>
+                          <li><a ui-sref="policies-acts" title="{{'policies_acts' | translate}}">{{'policies_acts' | translate}}</a></li>
+                          <li><a ui-sref="javascript:;" title="{{'notice_boards' | translate}}">{{'notice_boards' | translate}}</a></li>
+                          <li class="ttz-dropdownblk"><a ui-sref="contact-us" title="{{'contact_us' | translate}}">{{'contact_us' | translate}}</a>
                               <div class="ttz-dropdown dropdown-menu dropdownhover-bottom dd-contact" id="Div1" role="menu">
-                                    <div class="ttz-dropdownlst"><a href="key-contacts.html"  title="Key Contacts">Key Contacts</a></div>
-                                    <div class="ttz-dropdownlst"><a href="head-offices.html"  title="Head Office">Head Office</a></div>
-                                    <div class="ttz-dropdownlst"><a href=""  title="DICs">DICs</a></div>
-                                    <div class="ttz-dropdownlst"><a href="" title="Authority / Board / Corp">Authority / Board / Corp</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="contact-us.key-contacts"  title="{{'key_contacts' | translate}}">{{'key_contacts' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="contact-us.head-offices"  title="{{'head_office' | translate}}">{{'head_office' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="contact-us.dic"  title="{{'dics' | translate}}">{{'dics' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ui-sref="contact-us.authority" title="{{'authority' | translate}}">{{'authority' | translate}}</a></div>
                                </div>
                           </li>               
-                          <li class="ttz-dropdownblk"><a href="javascript:;" title="Quick Links">Quick Links</a>
-                              <div class="ttz-dropdown dropdown-menu dropdownhover-bottom" id="Div1" role="menu">
-                                    <div class="ttz-dropdownlst"><a href="http://udyogaadhaar.gov.in/UA/UAM_Registration.aspx" target="_blank" title="Udyog Aadhar">Udyog Aadhar</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://www.udyogmitrabihar.in/" target="_blank" title="Udyog Mitra">Udyog Mitra</a></div>
-                                    <div class="ttz-dropdownlst"><a href="https://www.biharcommercialtax.gov.in/bweb/" target="_blank" title="Commercial Taxes Department">Commercial Taxes Department</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://labour.bih.nic.in/" target="_blank" title="Labour Resources Department">Labour Resources Department</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://www.biadabihar.in/" target="_blank" title="Industrial Area Development Authority">Industrial Area Development Authority</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://energy.bih.nic.in/" target="_blank" title="Energy Deparment">Energy Deparment</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://registration.bih.nic.in/" target="_blank" title="Registration, Excise & Prohibition Department">Registration, Excise & Prohibition Department</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://bspcb.bih.nic.in/" target="_blank" title="Pollution Control Board">Pollution Control Board</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://forest.bih.nic.in/" target="_blank" title="Environment & Forest Department">Environment & Forest Department</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://home.bih.nic.in/Fire/bfs.htm" target="_blank" title="Fire Office">Fire Office</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://urban.bih.nic.in/" target="_blank" title="Urban Development & Housing Department Board">Urban Development & Housing Department Board</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://wrd.bih.nic.in/" target="_blank" title="Water Resource Department">Water Resource Department</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://lrc.bih.nic.in/" target="_blank" title="Revenue & Land Reforms">Revenue & Land Reforms</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://law.bih.nic.in/" target="_blank" title="Department of Law">Department of Law</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://industries.bih.nic.in/Documents/Directorate-of-Tech-Dev.pdf" target="_blank" title="Directorate of Technical Development">Directorate of Technical Development</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://industries.bih.nic.in/Documents/Directorate-of-Handloom-and-Sericulture.pdf" target="_blank" title="Directorate of Handloom & Sericulture">Directorate of Handloom & Sericulture</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://industries.bih.nic.in/F-MPR.htm" target="_blank" title="Directorate of food processing">Directorate of food processing</a></div>
-                                    <div class="ttz-dropdownlst"><a href="http://www.umsas.org.in/" target="_blank" title="Upendra Maharathi Shilp Anusandhan Sansthan">Upendra Maharathi Shilp Anusandhan Sansthan</a></div>
+                          <li class="ttz-dropdownblk"><a href="javascript:;" title="{{'quick_links' | translate}}">{{'quick_links' | translate}}</a>
+                              <div class="ttz-dropdown dropdown-menu dropdownhover-bottom dd_quick" id="Div1" role="menu">
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://udyogaadhaar.gov.in/UA/UAM_Registration.aspx')"   title="{{'udyog_aadhar' | translate}}">{{'udyog_aadhar' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://www.udyogmitrabihar.in/')"  title="{{'udyog_mitra' | translate}}">{{'udyog_mitra' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('https://www.biharcommercialtax.gov.in/bweb/')"  title="{{'commercial_tax_dept' | translate}}">{{'commercial_tax_dept' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://labour.bih.nic.in/')"  title="{{'labour_resources_dept' | translate}}">{{'labour_resources_dept' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://www.biadabihar.in/')"  title="{{'industrial_area' | translate}}">{{'industrial_area' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://energy.bih.nic.in/')"  title="{{'energy_dept' | translate}}">{{'energy_dept' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://registration.bih.nic.in/')"  title="{{'prohibition_program' | translate}}">{{'prohibition_program' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://bspcb.bih.nic.in/')"  title="{{'pcb' | translate}}">{{'pcb' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://forest.bih.nic.in/')"  title="{{'ef_dept' | translate}}">{{'ef_dept' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://home.bih.nic.in/Fire/bfs.htm')"  title="{{'fire_office' | translate}}">{{'fire_office' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://urban.bih.nic.in/')"  title="{{'ud_hd_boards' | translate}}">{{'ud_hd_boards' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://wrd.bih.nic.in/')"  title="{{'water_resource_dept' | translate}}">{{'water_resource_dept' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://lrc.bih.nic.in/')"  title="{{'revenue_land_ref' | translate}}">{{'revenue_land_ref' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://law.bih.nic.in/')"  title="{{'law_dept' | translate}}">{{'law_dept' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://industries.bih.nic.in/Documents/Directorate-of-Tech-Dev.pdf')"  title="{{'tech_dev' | translate}}">{{'tech_dev' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://industries.bih.nic.in/Documents/Directorate-of-Handloom-and-Sericulture.pdf')"  title="{{'hs_directorate' | translate}}">{{'hs_directorate' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://industries.bih.nic.in/F-MPR.htm')"  title="{{'fp_directorate' | translate}}">{{'fp_directorate' | translate}}</a></div>
+                                    <div class="ttz-dropdownlst"><a ng-click="menuRedirect('http://www.umsas.org.in/')"  title="{{'unsas' | translate}}">{{'unsas' | translate}}</a></div>
                                </div>
                           </li>              
-                          <li><a ui-sref="login" class="login_btn" title="Login">Login</a></li>              
+                          <li><a ui-sref="login" class="login_btn" title="{{'login' | translate}}">{{'login' | translate}}</a></li>              
                         </ul>
 
                       </nav>
                     </div>
 
                       <div class="pull-right visible-xs visible-sm" id="main_nav">
-                          <a href="index.html" class="mob_log"><img src="images/logo.png" alt="Department of Industries - Government of Bihar" title="Department of Industries - Government of Bihar" class="img-responsive" /></a>
+                          <a href="index.html" class="mob_log"><img src="images/logo_v2.png" alt="Department of Industries - Government of Bihar" title="Department of Industries - Government of Bihar" class="img-responsive" /></a>
                         <a href="#menu" class="mob_menu"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
                       <nav id="menu">
                         <ul>
                           <li><a href="javascript:;" title="Home">Home</a></li>
                           <li><a href="about-us.html" title="About Us">About Us</a>
                                 <ul>
-                                    <li><a href=""  title="Overview">Overview</a></li>
-                                    <li><a href=""  title="Department Functions">Department Functions</a></li>
-                                    <li><a href=""  title="Basic Practices">Basic Practices</a></li>
-                                    <li><a href="" title="Citizen Charter">Citizen Charter</a></li>
-                                    <li><a href="" title="Photo Gallery">Photo Gallery</a></li>
+                                    <li><a ui-sref="about.overview"  title="{{'overview' | translate}}">{{'overview' | translate}}</a></li>
+                                    <li><a ui-sref="about.department-functions"  title="{{'department_funtions' | translate}}">{{'department_funtions' | translate}}</a></li>
+                                    <li><a ui-sref="about.organizational-structure"  title="{{'org_structure' | translate}}">{{'org_structure' | translate}}</a></li>
+                                    <li><a ui-sref="about.department-functions" title="{{'citizen_charter' | translate}}">{{'citizen_charter' | translate}}</a></li>
+                                    <li><a ui-sref="about.department-functions" title="{{'photo_gallery' | translate}}">{{'photo_gallery' | translate}}</a></li>
                                </ul>
                           </li>
-                          <li><a href="javascript:;" title="Explore Bihar">Explore Bihar</a></li>
-                          <li><a href="javascript:;" title="Services & Schemes">Services & Schemes</a></li>
-                          <li><a href="javascript:;" title="Investors Zone">Investors Zone</a></li>
-                          <li><a href="javascript:;" title="Guidelines">Guidelines</a></li>
-                          <li><a href="javascript:;" title="Policies/Acts">Policies/Acts</a></li>
-                          <li><a href="javascript:;" title="Notice Board">Notice Board</a></li>
-                          <li><a href="javascript:;" title="Contact Us">Contact Us</a>
+                          <li><a href="javascript:;" title="Explore Bihar">Explore Bihar</a>
+                          
+                          </li>
+                          <li><a href="javascript:;" title="Services & Schemes">Services & Schemes</a>
+                          <ul>
+                                    <li><a ui-sref="services.single-window"  title="{{'single_window' | translate}}">{{'single_window' | translate}}</a></li>
+                                    <li><a ui-sref="services.schemes"  title="{{'schemes' | translate}}">{{'schemes' | translate}}</a></li>
+                               </ul>
+                          </li>
+                          <li><a ui-sref="javascript:;" title="Investors Zone">Investors Zone</a></li>
+                          <li><a ui-sref="guidelines" title="Guidelines">Guidelines</a></li>
+                          <li><a ui-sref="policies-acts" title="Policies/Acts">Policies/Acts</a></li>
+                          <li><a ui-sref="javascript:;" title="Notice Board">Notice Board</a></li>
+                          <li><a ui-sref="contact-us" title="{{'contact_us' | translate}}">{{'contact_us' | translate}}
                               <ul>
-                                    <li><a href="key-contacts.html"  title="Key Contacts">Key Contacts</a></li>
-                                    <li><a href="head-offices.html"  title="Head Office">Head Office</a></li>
-                                    <li><a href=""  title="DICs">DICs</a></li>
-                                    <li><a href="" title="Authority / Board / Corp">Authority / Board / Corp</a></li>
+                                    <li><a ui-sref="contact-us.key-contacts"  title="{{'key_contacts' | translate}}">{{'key_contacts' | translate}}</a></li>
+                                    <li><a ui-sref="contact-us.head-offices"  title="{{'head_office' | translate}}">{{'head_office' | translate}}</a></li>
+                                    <li><a ui-sref="contact-us.dic"  title="{{'dics' | translate}}">{{'dics' | translate}}</a></li>
+                                    <li><a ui-sref="contact-us.authority" title="{{'authority' | translate}}">{{'authority' | translate}}</a></li>
                               </ul>
                           </li>               
                           <li><a href="javascript:;" title="Quick Links">Quick Links</a>
@@ -188,4 +201,19 @@
             </div>
         </div>
     </div>
-	  	</header>
+	  	
+
+      <div class="qlink-redirect" id="showRedirectBlk">
+        <div class="qlink-redirect-wrapper">
+          <h4>Are you sure? You will be redirected to other domain</h4>
+
+          <input type="submit" class="btn btn-primary loginbt" ng-click="HideRedirected()" style="width:100px;" value="Cancel" />
+          <input type="submit" class="btn btn-primary loginbt" ng-click="redirected()" style="width:100px;" value="Ok" />
+        </div>
+      </div>
+
+      </header>
+
+      
+
+      

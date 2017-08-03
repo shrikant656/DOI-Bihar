@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="routerApp">
+<html ng-app="routerApp" lang="en">
 <head>
 	<title>DOI Bihar</title>
 	<meta charset="utf-8">
@@ -8,12 +8,14 @@
 	
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link href="styles/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+        <link href="styles/main.css" rel="stylesheet" type="text/css" media="all">
 	<link href="styles/fontawesome-4.2.0.min.css" rel="stylesheet" type="text/css" media="all">
-	<link href="styles/main.css" rel="stylesheet" type="text/css" media="all">
+	<link href="styles/sweet-alert.css" rel="stylesheet" type="text/css" media="all">
 	<!-- <link href="styles/responsive.css" rel="stylesheet" type="text/css" media="all">
 	<link href="styles/responsive_1024.css" rel="stylesheet" type="text/css" media="all"> -->
 	<link href="styles/aos.css" rel="stylesheet">
 	<link type="text/css" href="styles/jquery.mmenu.all.css" rel="stylesheet" />
+  <link href="styles/chocolat.css" type="text/css" rel="stylesheet" media="screen" charset="utf-8">
 
 	
 </head>
@@ -50,23 +52,37 @@
     <script src="libraries/jquery.min.js"></script>
     <script src="libraries/aos.js"></script>
     <script src="libraries/jquery.mmenu.all.min.js"></script>
+    <script src="libraries/modernizr.custom.97074.js"></script>
+    <script src="libraries/jquery.chocolat.js"></script>
+    <script src="libraries/jquery.hoverdir.js"></script>
     <script src="scripts/app.js"></script>
     <script src="libraries/authentication.service.js"></script>
     <script src="libraries/user.service.local-storage.js"></script>
     <script src="libraries/flash.service.js"></script>
-
+    <script src="libraries/sweet-alert.min.js"></script>
+    <script src="libraries/SweetAlert.js"></script>
+    <script src="libraries/Chart.min.js"></script>
+    <script src="libraries/angular-chart.js"></script>
+    
     
     <script src="scripts/lang-en.js"></script>
     <script src="scripts/lang-hn.js"></script>
+    <script src="scripts/header-controller.js"></script>
     <script src="template/about/about-controller.js"></script>
     <script src="template/agriculture-sector/agriculture-sector-controller.js"></script>
     <script src="template/login/login-controller.js"></script>
-    <script src="template/register/register-controller.js"></script>
+    <script src="template/login/register-controller.js"></script>
+    <script src="template/footer-controller.js"></script>
     <script src="template/tender/tender-controller.js"></script>
     <script src="template/contact/contact-controller.js"></script>
+    <script src="template/services/services-controller.js"></script>
+    <script src="template/investors-zone/investors-zone-controller.js"></script>
+    <script src="template/opinion/opinion-controller.js"></script>
+    <script src="template/feedback/feedback-controller.js"></script>
+    <script src="template/home/home-controller.js"></script>
+    
 
     <script src="template/accordion/accordion-controller.js"></script>
-    <script src="template/carousel/carousel-controller.js"></script>
     <script src="template/others/others-controller.js"></script>
     <script src="template/pagination/pagination-controller.js"></script>
     <script src="application/home/home.controller.js"></script>
@@ -98,15 +114,20 @@
                      }
                   ]
               });
-
-	      },1000);
-
-	      AOS.init({
+            AOS.init({
 	        easing: 'ease',
 	        once: true,
 	        duration: 1000,
 	        offset: 10
 	      });
+              
+              //for gallery hover effect
+              $('.gallery a').Chocolat();
+              
+              $(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
+	      },1000);
+
+	      
 	});
 
 </script>

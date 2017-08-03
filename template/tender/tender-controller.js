@@ -2,10 +2,8 @@
 
 (function(){
 
-    angular.module('routerApp').controller('tenderController', function ($scope,filterFilter) {
+    angular.module('routerApp').controller('tenderController', ['$scope','filterFilter',function ($scope,filterFilter) {
     	$scope.title="Tenders";
-
-    	
 
     	$scope.items = [
     		{ 
@@ -322,7 +320,7 @@
 		  }, true);
     	
 
-    })
+    }])
     
 
 })()

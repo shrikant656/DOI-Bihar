@@ -1,0 +1,62 @@
+<div class="login_card">
+
+  <form name="userForm" novalidate ng-controller="formController" class="form-horizontal" ng-submit="submitForm()">
+        <div class="form-group"><img src="images/single_window_logo.png" class="img-responsive login_top_img" alt="Emblem" title="Emblem"></div>
+        <!-- First Name -->
+        <div class="input-container" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }" >
+          
+            <input type="text" name="firstname" ng-model="user.firstname" ng-minlength="2" ng-maxlength="40" allow-pattern="[a-z ]" required  />
+            <label for="firstname">First Name</label>
+            <div class="bar"></div>
+            <span ng-show="userForm.firstname.$error.minlength" class="help-block">Firstname is too short.</span>
+            <span ng-show="userForm.firstname.$error.maxlength" class="help-block">Firstname is too long.</span>
+            <span ng-show="userForm.firstname.$dirty && userForm.firstname.$error.required" class="help-block">First name is required</span>
+          
+        </div>
+
+        <!-- Last Name -->
+        <div class="input-container" ng-class="{ 'has-error' : userForm.lastname.$invalid && !userForm.lastname.$pristine }" >
+          
+            <input type="text" name="lastname" ng-model="user.lastname" ng-minlength="2" ng-maxlength="40" allow-pattern="[a-z ]" required  />
+            <label for="lastname">Last Name</label>
+            <div class="bar"></div>
+            <span ng-show="userForm.lastname.$error.minlength" class="help-block">Lastname is too short.</span>
+            <span ng-show="userForm.lastname.$error.maxlength" class="help-block">Lastname is too long.</span>
+            <span ng-show="userForm.lastname.$dirty && userForm.lastname.$error.required" class="help-block">Last name is required</span>
+          
+        </div>
+
+        <!-- Email -->
+        <div class="input-container" ng-class="{ 'has-error': userForm.email.$invalid && !userForm.email.$pristine}" >
+          
+            <input type="email" name="email" ng-model="user.email" required  />
+            <label for="email">Email</label>
+            <div class="bar"></div>
+            <span ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Invalid email ID</span>
+          
+        </div>
+
+
+        <!-- CONTACTNO -->
+         <div class="input-container" ng-class="{'has-error' : userForm.contactno.$invalid && !userForm.contactno.$pristine}">
+            <input type="text" name="mobileInitial" class="mob-start" placeholder="+91" ng-modal="user.mobileInitial" maxlength="3" allow-pattern="(\d|[+])">
+             <input type="text" name="contactno" class="mob-end" ng-model="user.contactno" required maxlength="10" allow-pattern="\d">
+             <label for="contactno">Mobile No.</label>
+              <div class="bar bar-left"></div>
+              <div class="bar bar-right"></div>
+             <p ng-show="userForm.contactno.$error.pattern && (userForm.contactno.$dirty)" class="help-block">Enter a valid contactno.</p>
+           
+         </div>
+
+         <div class="form-group">
+
+            <button class="btn btn-primary loginbt" ng-disabled="userForm.$invalid || vm.dataLoading">Register</button>
+            <button class="btn btn-link" ng-click="reset()">Reset</button>
+
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+        <div class="loginmsg" ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+
+      
+      </form>
+</div>

@@ -3,7 +3,7 @@
 (function(){
 
 
-    var routerApp = angular.module('routerApp', ['ngAnimate', 'ngSanitize','ngCookies', 'ui.bootstrap','ui.router','ngCookies','pascalprecht.translate']);
+    var routerApp = angular.module('routerApp', ['ngAnimate', 'ngSanitize','ngCookies', 'ui.bootstrap','ui.router','ngCookies','pascalprecht.translate','oitozero.ngSweetAlert','chart.js']);
       var cookies;
       function readCookie(name, c, C, i) {
           var sd = document.cookie;
@@ -19,12 +19,23 @@
     var langchanges = readCookie('NG_TRANSLATE_LANG_KEY');
     var langchange = langchanges ? langchanges : '%22English%22';
 
-    routerApp.config(function($stateProvider, $urlRouterProvider,$translateProvider) {
+    routerApp.config(function($stateProvider, $urlRouterProvider,$translateProvider,ChartJsProvider) {
+
+        // Configure all charts
+    ChartJsProvider.setOptions({
+      colors: ['#97BBCD', '#DCDCDC', '#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360']
+    });
+    // Configure all doughnut charts
+    ChartJsProvider.setOptions('doughnut', {
+      cutoutPercentage: 60
+    });
 
     $urlRouterProvider.otherwise('/home');
     $urlRouterProvider.when("/about", "/about/overview");
     $urlRouterProvider.when("/contact-us", "/contact-us/key-contacts");
+    $urlRouterProvider.when("/services", "/services/single-window");
     $urlRouterProvider.when("/agriculture-sector", "/agriculture-sector/introduction");
+    $urlRouterProvider.when("/login", "/login/userlogin");
 
     $stateProvider
 
@@ -34,23 +45,50 @@
             templateUrl: 'template/home/home.html',
             controller: 'LangCtrl'
         })
+                
+        .state('app', {
+            url: '/app',
+            templateUrl: 'application/home/home.html',
+            controller: 'HomeController'
+        })
+        // Login STATES AND NESTED VIEWS ========================================
         .state('login', {
             url: '/login',
             templateUrl: 'template/login/login.html',
             controller: 'loginController',
             controllerAs: 'vm'
         })
-        .state('register', {
+        .state('login.userlogin', {
+            url: '/userlogin',
+            templateUrl: 'template/login/login-view.html'
+        })
+        .state('login.register', {
+            url: '/register',
+            templateUrl: 'template/login/register-view.html',
+            controller: 'RegisterController',
+            controllerAs: 'vm'
+        })
+        .state('login.forgot-password', {
+            url: '/forgot-password',
+            templateUrl: 'template/login/ForgotPassword-view.html'
+           //controller: 'loginController',
+           // controllerAs: 'vm'
+        })
+        .state('login.thankyou', {
+            url: '/thankyou',
+            templateUrl: 'template/login/thankyou.html'
+        })
+        .state('login.otp', {
+            url: '/otp',
+            templateUrl: 'template/login/otp.html'
+        })
+        .state('register', {  //Note: Dummy need to delete it, dont refer this state...
             url: '/register',
             templateUrl: 'template/register/register.html',
             controller: 'RegisterController',
             controllerAs: 'vm'
         })
-        .state('app', {
-            url: '/app',
-            templateUrl: 'application/home/home.html',
-            controller: 'HomeController'
-        })
+
         // About STATES AND NESTED VIEWS ========================================
         .state('about', {
             url: '/about',
@@ -69,12 +107,33 @@
             url: '/organizational-structure',
             templateUrl: langchange == '%22English%22' ? 'template/about/organizational-structure.html' : 'template/about/organizational-structure-hn.html'
         })
-        .state('about.best-practices', {
-            url: '/best-practices',
-            templateUrl: langchange == '%22English%22' ? 'template/about/best-practices.html' : 'template/about/best-practices-hn.html'
+        .state('about.citizen-charter', {
+            url: '/citizen-charter',
+            templateUrl: langchange == '%22English%22' ? 'template/about/citizen-charter.html' : 'template/about/citizen-charter-hn.html'
         })
-        // About STATES AND NESTED VIEWS ========================================
-        .state('contact-us', {
+        /*.state('about.photo-gallery', {
+            url: '/photo-gallery',
+            templateUrl: langchange == '%22English%22' ? 'template/about/photo-gallery.html' : 'template/about/photo-gallery-hn.html'
+        })*/
+        
+        
+        // Investors Zone STATES AND NESTED VIEWS ========================================
+        .state('investors-zone', {
+            url: '/investors-zone',
+            templateUrl: 'template/investors-zone/investors-zone.html',
+            controller: 'investorsController'
+        })
+        .state('investors-zone.important-downloads', {
+            url: '/important-downloads',
+            templateUrl: langchange == '%22English%22' ? 'template/investors-zone/important-downloads.html' : 'template/investors-zone/important-downloads-hn.html'
+        })
+        .state('investors-zone.faq', {
+            url: '/faq',
+            templateUrl: langchange == '%22English%22' ? 'template/investors-zone/faq.html' : 'template/investors-zone/faq-hn.html'
+        })
+
+        // contact STATES AND NESTED VIEWS ========================================
+	.state('contact-us', {
             url: '/contact-us',
             templateUrl: 'template/contact/contact.html',
             controller: 'contactController'
@@ -95,6 +154,35 @@
             url: '/authority',
             templateUrl: langchange == '%22English%22' ? 'template/contact/authority.html' : 'template/contact/authority-hn.html'
         })
+        // services STATES AND NESTED VIEWS ========================================
+        .state('services', {
+            url: '/services',
+            templateUrl: 'template/services/services.html',
+            controller: 'servicesController'
+        })
+        .state('services.single-window', {
+            url: '/single-window',
+            templateUrl: langchange == '%22English%22' ? 'template/services/single-window.html' : 'template/services/single-window-hn.html'
+        })
+        .state('services.schemes', {
+            url: '/schemes',
+            templateUrl: langchange == '%22English%22' ? 'template/services/schemes.html' : 'template/services/schemes-hn.html'
+        })
+        // Guidelines STATES AND NESTED VIEWS ========================================
+        .state('guidelines', {
+            url: '/guidelines',
+            templateUrl: langchange == '%22English%22' ? 'template/guidelines/guidelines.html' : 'template/guidelines/guidelines-hn.html'
+        }) 
+        // Policies Acts STATES AND NESTED VIEWS ========================================
+        .state('policies-acts', {
+            url: '/policies-acts',
+            templateUrl: langchange == '%22English%22' ? 'template/policies-acts/policies-acts.html' : 'template/policies-acts/policies-acts-hn.html'
+        }) 
+        // Photo Gallery STATES AND NESTED VIEWS ========================================
+        .state('photo-gallery', {
+            url: '/photo-gallery',
+            templateUrl: langchange == '%22English%22' ? 'template/photo-gallery/photo-gallery.html' : 'template/photo-gallery/photo-gallery.html'
+        }) 
         // Agriculture STATES AND NESTED VIEWS ========================================
         .state('agriculture-sector', {
             url: '/agriculture-sector',
@@ -108,6 +196,18 @@
         .state('agriculture-sector.highlights', {
             url: '/highlights',
             templateUrl: langchange == '%22English%22' ? 'template/agriculture-sector/highlights.html' : 'template/agriculture-sector/highlights-hn.html'
+        })
+        .state('agriculture-sector.renewal-energy', {
+            url: '/renewal-energy',
+            templateUrl: langchange == '%22English%22' ? 'template/agriculture-sector/renewal-energy.html' : 'template/agriculture-sector/renewal-energy-hn.html'
+        })
+        .state('agriculture-sector.manufacturing', {
+            url: '/manufacturing',
+            templateUrl: langchange == '%22English%22' ? 'template/agriculture-sector/manufacturing.html' : 'template/agriculture-sector/manufacturing-hn.html'
+        })
+        .state('agriculture-sector.it-electronics', {
+            url: '/it-electronics',
+            templateUrl: langchange == '%22English%22' ? 'template/agriculture-sector/it-electronics.html' : 'template/agriculture-sector/it-electronics-hn.html'
         })
         // Tenders STATES AND NESTED VIEWS ========================================
         .state('tender', {
@@ -133,7 +233,8 @@
         // remember language
         $translateProvider.useCookieStorage();
 
-        $translateProvider.useSanitizeValueStrategy('sanitize');
+        //$translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.useSanitizeValueStrategy(null);
     });
 
    
@@ -145,7 +246,7 @@
         }
 
         $rootScope.$on('$stateChangeStart', function (event, next, current) {
-            console.log(123);
+            //console.log(123);
             // redirect to login page if not logged in and trying to access a restricted page
             var restrictedPage = $.inArray($state.path(), ['/login', '/register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
@@ -156,97 +257,7 @@
     });
     
 
-    routerApp.controller('LangCtrl', ['$translate', '$scope', function ($translate, $scope) {
-
-        $scope.products = [{ lang: 'English' }, { lang: 'Hindi' }];
-
-        var currentLang = $translate.proposedLanguage() || $translate.use();
-        $scope.sellang = currentLang;
-        $scope.selectedLanguage = currentLang;
-        console.log(currentLang + ' currentLang');
-        /*var mainUrl = window.location.href;
-          
-          var match = mainUrl.substr(mainUrl.lastIndexOf('/')+1).split('-').pop();
-          console.log(match + ' match');
-          var replacedUrlEN = mainUrl.replace('hn','en');
-          var replacedUrlHN = mainUrl.replace('en','hn');
-           
-          if((match !== '') && (match !== 'hn') && (match !== 'en')){
-              var replacedUrl = (currentLang == 'Hindi') ? (window.location.href + '-hn') : (window.location.href + '-en');
-              window.location.href = replacedUrl;
-            }else if(match == 'hn' && currentLang == 'English'){
-            window.location.href = replacedUrlEN;
-          } else if(match == 'en' && currentLang == 'Hindi'){
-            window.location.href = replacedUrlHN;
-          } */
-
-      $scope.selectLanguage = function(langKey){
-      if (langKey === 'English') {
-          $translate.fallbackLanguage('English');
-        } else if (langKey == 'Hindi') {
-          $translate.fallbackLanguage('Hindi');
-        }
-        $translate.use(langKey);
-        location.reload()
-      };
-      
-    }]);
-
-    routerApp.controller('DatepickerPopupDemoCtrl', function($scope) {
     
-          $scope.clear = function() {
-            $scope.dt = null;
-          };
-
-          $scope.dateOptions = {
-            formatYear: 'yy',
-            //maxDate: new Date(2020, 5, 22),
-            //minDate: new Date(),
-            maxDate: new Date(),
-            startingDay: 1
-          };
-
-          $scope.open2 = function() {
-            $scope.popup2.opened = true;
-          };
-
-          $scope.popup2 = {
-            opened: false
-          };
-
-          var tomorrow = new Date();
-          tomorrow.setDate(tomorrow.getDate() + 1);
-          var afterTomorrow = new Date();
-          afterTomorrow.setDate(tomorrow.getDate() + 1);
-          $scope.events = [
-            {
-              date: tomorrow,
-              status: 'full'
-            },
-            {
-              date: afterTomorrow,
-              status: 'partially'
-            }
-          ];
-
-          function getDayClass(data) {
-            var date = data.date,
-              mode = data.mode;
-            if (mode === 'day') {
-              var dayToCheck = new Date(date).setHours(0,0,0,0);
-
-              for (var i = 0; i < $scope.events.length; i++) {
-                var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
-
-                if (dayToCheck === currentDay) {
-                  return $scope.events[i].status;
-                }
-              }
-            }
-
-            return '';
-          }
-    })
 
 
 })()

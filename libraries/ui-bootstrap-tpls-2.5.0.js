@@ -4854,8 +4854,8 @@ angular.module('ui.bootstrap.pagination', ['ui.bootstrap.paging', 'ui.bootstrap.
   boundaryLinkNumbers: false,
   directionLinks: true,
   firstText: 'First',
-  previousText: 'Previous',
-  nextText: 'Next',
+  previousText: '<<',
+  nextText: '>>',
   lastText: 'Last',
   rotate: true,
   forceEllipses: false
