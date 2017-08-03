@@ -1,0 +1,152 @@
+<div class="jumbotron text-center">
+    <h2>Form</h2>
+</div>
+
+<div class="row">
+
+    <div class="col-sm-6">
+        <form name="userForm" novalidate ng-controller="formController" class="form-horizontal" ng-submit="submitForm()">
+        <div class="dummy" style="margin-bottom:20px">
+      	 ALPHA ONLY <input type="text" allow-pattern="[a-z ]" />
+		  <br>
+		  NUMBER ONLY <input type="text" allow-pattern="\d" />
+		  <br>
+		  ALPHANUMERIC ONLY <input type="text" allow-pattern="(\d|[a-z])" />
+		  <br>
+		  WHITESPACE CHARACTERS ONLY <input type="text" allow-pattern="\W" />
+		  <br>
+		  ABCDEFG ONLY <input type="text" allow-pattern="[ABCDEFG]" />
+		 </div>
+	      <!-- Name -->
+	      <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }" >
+	        <label class="control-label col-sm-3 text-left">Name</label>
+	        <div class="col-sm-9">
+		        <input type="text" class="form-control" name="name" ng-model="user.name" ng-minlength="3" ng-maxlength="18" allow-pattern="[a-z ]" required placeholder="Name" />
+		        <p ng-show="userForm.name.$error.minlength" class="help-block">Username is too short.</p>
+		        <p ng-show="userForm.name.$error.maxlength" class="help-block">Username is too long.</p>
+	        </div>
+	      </div>
+
+	      <!-- Email -->
+	      <div class="form-group" ng-class="{ 'has-error': userForm.email.$invalid && !userForm.email.$pristine}" >
+	        <label class="control-label col-sm-3 text-left">Email</label>
+	        <div class="col-sm-9">
+		        <input type="email" class="form-control" name="email" ng-model="user.email" required placeholder="Email" />
+		        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Invalid email ID</p>
+	        </div>
+	      </div>
+
+	      <div class="form-group customradiobtn" ng-class="{ 'has-error' : userForm.grpGender.$invalid && !userForm.grpGender.$pristine }">
+            <label class="control-label col-sm-3 text-left">Gender</label>
+            <div class="col-sm-9">
+                <label class="radio-inline">
+                    <input type="radio" name="grpGender" id="grpGenderMale" ng-model="user.Gender" required ng-value='true'>Male</label>
+                <label class="radio-inline">
+                    <input type="radio" name="grpGender" id="grpGenderFemale" ng-model="user.Gender" required ng-value='false'>Female</label>
+            </div>
+           </div>
+
+           <div class="form-group customcheckbox" ng-class="{ 'has-error' : userForm.selectedFruits.$invalid && !userForm.selectedFruits.$pristine }">
+            <label class="control-label col-sm-3 text-left">Fruits</label>
+            <div class="col-sm-9">
+                <div ng-repeat="(key, val) in fruits" class="fL">
+                	<label class="radio-inline">
+	              		<input type="checkbox" ng-value="{{val.id}}" ng-true-value="true" ng-false-value="false" ng-model="userForm.selectedFruits[val.name]" ng-required="!userForm.selectedFruits"> {{val.name}}
+	            	</label>
+	            </div>
+            </div>
+           </div>
+
+	      <!-- CONTACTNO -->
+	       <div class="form-group" ng-class="{'has-error' : userForm.contactno.$invalid && !userForm.contactno.$pristine}">
+	         <label class="control-label col-sm-3 text-left">ContactNo</label>
+	         <div class="col-sm-9">
+		         <input type="text" name="contactno" class="form-control" ng-model="user.contactno" required placeholder="Your Contact No" ng-pattern="/^[789]\d{9}$/" maxlength="10" allow-pattern="\d">
+		         <p ng-show="userForm.contactno.$error.pattern && (userForm.contactno.$dirty)" class="help-block">Enter a valid contactno.</p>
+	         </div>
+	       </div>
+
+	        <!-- COUNTRY -->
+	       <div class="form-group" ng-class="{ 'has-error' : userForm.country.$invalid && (userForm.country.$dirty || submitted)}">
+	         <label class="control-label col-sm-3 text-left">Country</label>
+	         <div class="col-sm-9">
+		         <div class="selectbox">
+			         <select name="country" class="form-control" ng-model="user.country" ng-options="country.CountryId as country.Name for country in countryList" ng-required="true">
+			          <option value=''>Select</option>
+			         </select>
+		         </div>
+		         <p ng-show="userForm.country.$error.required && (userForm.country.$dirty || submitted)" class="help-block">Select country.</p>
+	         </div>
+	       </div>
+
+	        <!-- CITY -->
+	       <div class="form-group" ng-class="{ 'has-error' : userForm.city.$invalid && (userForm.city.$dirty || submitted)}">
+	         <label class="control-label col-sm-3 text-left">City</label>
+	         <div class="col-sm-9">
+		         <div class="selectbox">
+			         <select name="city" class="form-control" ng-model="user.city" ng-options="city.CityId as city.Name for city in cityList" ng-required="true">
+			          <option value=''>Select</option>
+			         </select>
+		         </div>
+		         <p ng-show="userForm.city.$error.required && (userForm.city.$dirty || submitted)" class="help-block">Select city.</p>
+	         </div>
+	       </div>
+
+			<!-- Password -->
+	        <div class="form-group" ng-class="{'has-error':!passwordGood && (!userForm.password.$pristine)}">
+	        <label for="inputPassword" class="control-label col-sm-3 text-left">Password:</label>
+	        <div class="col-sm-9">
+	            <input type="text" class="form-control" id="inputPassword" name="password" ng-model="user.password" valid-password required/>
+	            <div class="help-inline">
+	                <span class="help-block" ng-show="!!userForm.password.$error.isBlank">Password Required.</span>
+	                <span class="help-block" ng-show="!!userForm.password.$error.isWeak">Must contain one upper &amp; lower case letter and a non-letter (number or symbol.)</span> 
+	                <span class="help-block" ng-show="!!userForm.password.$error.invalidLen">Must be 8-20 characters.</span>
+	            </div>
+	        </div>
+	        </div>
+			<!-- Confirm Password -->
+		    <div class="form-group" ng-class="{'has-error':!passwordCGood && (userForm.password_c.$dirty)}">
+		        <label for="password_c" class="control-label col-sm-3 text-left">Confirm Password:</label>
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control" id="password_c" name="password_c" ng-model="user.password_c" valid-password-c required/>
+		            <div class="help-inline"> 
+		                <span class="help-block" ng-show="!!userForm.password_c.$error.isBlank">Confirmation Required.</span>
+		                <span class="help-block" ng-show="!!userForm.password_c.$error.noMatch">Passwords don't match.</span>
+		            </div>
+		        </div>
+		    </div>
+
+		    <div class="form-group">
+	          <label class="control-label col-sm-3">Upload Document</label>
+	            <div class="col-md-9  filevalblk">
+	                <div class="browseblk fL">
+	                    <label class="btn btn-filecolor btn-file btn-lightgreen" id="poilabel">
+	                        <i class="fa fa-folder-open-o"></i>
+	                        <input type="file" name="userUpload" ng-model="document" valid-file class="inptfile" required id="fileIDProof" style="display: none;" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+	                    </label>
+	                    <p class="filevalblk-wrapper"><span class="fileval truncate fL"></span><span class="removefileval fL">✕</span></p>
+	                </div>
+	                <div class="btn btn-filecolor btn-file uploadblk btn-lightgreen fL" id="uploadbtn" ng-click="uploadbtn()">
+	                    <i class="fa fa-upload"></i>
+	                </div>
+	                <div class="btn btn-filecolor btn-file uploadblk btn-lightgreen fL ng-hide" ng-show="uploadshow1">
+	                    <i class="fa fa-eye"></i>
+	                </div>
+	            </div>
+	          </div>
+
+	      <button class="btn btn-primary" ng-click="save(fruits)" ng-disabled="userForm.$invalid">Submit</button>
+	      <button class="btn btn-link" ng-click="reset()">Reset</button>
+
+	      <p> Input is valid: {{userForm.userUpload.$valid}} Selected file: {{document}}</p>
+	      <pre style="margin-top:20px">{{formData}}</pre>
+	    </form>
+
+    </div>
+
+    <div class="col-sm-6"></div>
+
+</div>    
+
+
+
