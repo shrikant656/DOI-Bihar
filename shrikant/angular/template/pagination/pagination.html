@@ -1,0 +1,29 @@
+
+
+ <h2>Pagination</h2>
+        <div ng-controller="PageCtrl">
+            <label>Search:</label> <input type="text" ng-model="search" placeholder="Search" />
+            <br />
+            
+            <label>Filter by Category:</label>
+            <ul>
+                <li><a href="" ng-click="search.category.category='engineering'">Engineering</a></li>
+                <li><a href="" ng-click="search.category.category='management'">Management</a></li>
+                <li><a href="" ng-click="search.category.category='business'">Business</a></li>
+            </ul>
+
+            <label>Filter by Branch:</label>
+            <ul>
+                <li><a href="" ng-click="search.branch='West'">West</a></li>
+                <li><a href="" ng-click="search.branch='East'">East</a></li>
+            </ul>
+
+            <p><strong><a href="" ng-click="resetFilters()">Show All</a></strong></p>
+
+            <h1>Items</h1>
+            <ul>
+                <li ng-repeat="item in filtered = items | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">{{item.name}}</li>
+            </ul>
+
+            <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="entryLimit" max-size="noOfPages" class="pagination-sm" boundary-link-numbers="true" rotate="false" ></ul> 
+        </div>

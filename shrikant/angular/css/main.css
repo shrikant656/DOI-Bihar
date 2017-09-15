@@ -1,0 +1,193 @@
+body { color:#717171; font-family:sans-serif !important;color: #717171;font-size: 13px; }
+body a, .btn-link { color:#005f8c; }
+body a:hover { color:#00d0d8; text-decoration:none; }
+body a:focus, body a:focus img { outline:0; }
+.login-popblk {
+    position: fixed;
+    width: 450px;
+    height: 315px;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    z-index: 50;
+    padding: 20px;
+    margin: -100px 0 0 -225px;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
+    border: 1px solid #ddd;
+}
+.logintxt {
+    color: #161616;
+    font-size: 28px;
+    margin: 0 0 25px;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #00aadc;
+}
+.bp_number {
+    width: 100%;
+    margin: 5px 0 25px 0;
+    position: relative;
+}
+.fL {
+    float: left;
+}
+.bp_number p {
+    margin: 10px 0 10px;
+}
+.login_detail .form-control {
+    width: 290px;
+    height: 34px;
+}
+
+.fR {
+    float: right;
+}
+.links {
+    font-size: 13px;
+    padding: 15px 0 0;
+    color: #086135;
+    text-decoration: none !important;
+    font-weight: normal;
+}
+.txtbox_content {
+    position: absolute;
+    bottom: -20px;
+    left: 120px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.greencolor {
+    color: #00d0d8;
+}
+.btn-login {
+    color: #fff !important;
+    padding: 6px 22px;
+    font-size: 14px;
+    float: left;
+    margin: 0 0 0 120px;
+    background: #005f8c;
+    border-color: #005f8c;
+}
+.guppercase {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.password-blk, .changepwd-block, .bpnumber-blk {
+    display: none;
+}
+p {
+    margin: 0 0 10px;
+}
+/*.otp_detail {
+    width: 380px;
+    overflow: hidden;
+}
+.bp_number.otpblk {
+    margin: 20px 0 0 0;
+}
+.otp_detail .form-control {
+    width: 200px;
+    height: 34px;
+    margin: 0 0 0 40px;
+}
+.otp_detail .btn-default {
+    padding: 3px 10px;
+    font-size: 14px;
+}*/
+.btn-default {
+    background: #ffd420;
+    border-color: #deb300;
+    color: #161616;
+}
+.btn {
+    border-width: 1px 1px 2px 1px;
+    font-size: 18px;
+    padding: 6px 22px;
+}
+.btn-otp-submit {
+    color: #fff !important;
+    padding: 6px 22px;
+    font-size: 14px;
+    float: left;
+    margin: 0 0 0 65px;
+    background: #005f8c;
+    border-color: #005f8c;
+}
+select {
+    -webkit-appearance: none; 
+   -moz-appearance: none;
+   appearance: none;
+}
+select::-ms-expand { 
+    display: none; /* hide the default arrow in ie10 and ie11 */
+}
+.selectbox{position: relative}
+.selectbox:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #444;
+    right: 10px;
+    top: 14px;
+}
+
+.browseblk {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 250px;
+    background: #fff;
+}
+.btn-filecolor.btn-file, .btn-filecolor.btn-file:hover, .btn-filecolor.btn-file:focus {
+    position: relative;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 14px;
+    background-color: #36231d;
+}
+#uploadbtn{display: none}
+.btn-file.uploadblk{margin: 0 0 0 15px}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.filevalblk-wrapper {
+    position: absolute;
+    top: 8px;
+    left: 115px;
+    color: #333;
+    margin: 0;
+    display: none;
+}
+span.fileval.truncate.fL {
+    max-width: 100px;
+}
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.removefileval {
+    color: #36231d;
+    margin: 0 0 0 4px;
+    cursor: pointer;
+}
+
+.form-horizontal .control-label{text-align: left}
+.customcheckbox input[type="checkbox"]:checked:after{float: left; content: ""; width: 8px; height: 8px; background: green; border-radius: 2px; margin: -13px 0 0 1px;}
+.customcheckbox input[type="checkbox"]:before{width: 18px; height: 18px; background: #fff; color: #fff; border: 1px solid #ccc; float: left; content: ""; border-radius: 2px; margin: -4px 0px 0 -4px;}
+
+.customradiobtn input[type="radio"]:checked:after{float: left; content: ""; width: 8px; height: 8px; background: #00b4eb; border-radius: 5px; margin: -14px 0 0 2px;}
+.customradiobtn input[type="radio"]:before{width: 20px; height: 20px; background: #fff; color: #fff; border: 1px solid #ccc; float: left; content: ""; border-radius: 10px; margin: -4px 0px 0 -4px;}

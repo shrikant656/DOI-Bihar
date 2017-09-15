@@ -1,0 +1,15 @@
+
+<div class="jumbotron text-center">
+    <h1>{{ 'HEADLINE' | translate }}</h1><!-- Using filter -->
+    <p translate>paragraph1</p>
+    <p translate="paragraph2"></p> <!-- Using directive attr -->
+  	<p translate>{{ 'paragraph3' }}</p> <!-- Using directive interpolation -->
+  	<p>Default Hindi Content</p>
+    <a ui-sref=".list" class="btn btn-primary">List</a>
+    <a ui-sref=".carousel" class="btn btn-danger">Carousel</a>
+    <a ui-sref=".accordion" class="btn btn-success">Accordion</a>
+    <a ui-sref=".others" class="btn btn-success">Others</a>
+    <a ui-sref=".pagination" class="btn btn-success">Pagination</a>
+</div>
+
+<div ui-view></div>

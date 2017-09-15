@@ -1,0 +1,104 @@
+<uib-accordion close-others="oneAtATime" ng-controller="AccordionDemoCtrl">
+		
+	    <!-- <div uib-accordion-group class="panel-default" ng-repeat="group in groups" is-open="group.opened">
+	      <uib-accordion-heading>
+	        {{group.title}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': group.opened, 'glyphicon-chevron-right': !group.opened}"></i>
+	      </uib-accordion-heading>
+	      {{group.content}}
+	    </div> -->
+
+
+
+	    <div uib-accordion-group class="panel-default" ng-repeat="group in groups" is-open="group.opened" template-url="group-template.html">
+	      <uib-accordion-heading>
+	        {{group.title}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': group.opened, 'glyphicon-chevron-right': !group.opened}"></i>
+	      </uib-accordion-heading>
+	      	{{group.content}}
+	    </div>
+
+</uib-accordion>
+
+<script type="text/ng-template" id="group-template.html">
+    <div class="panel-heading">
+      <h4 class="panel-title" ng-click="toggleOpen()" style="cursor: pointer">
+        <a href tabindex="0" class="accordion-toggle"  uib-accordion-transclude="heading">
+          <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+            {{heading}}
+          </span>
+        </a>
+      </h4>
+    </div>
+    <div class="panel-collapse collapse" uib-collapse="!isOpen">
+      <div class="panel-body" ng-transclude></div>
+    </div>
+  </script>
+
+  <style>
+  	.detail {
+    margin: 10px 0 10px 0px;
+    display: none;
+    line-height: 22px;
+	}
+	 li {
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+    display: block;
+    padding: 10px 0;
+    overflow: hidden;
+    background: none !important;
+    margin: 0;
+	}
+	.expand {
+    display: block;
+    text-decoration: none;
+    color: #555;
+    cursor: pointer;
+	}
+	.right-arrow {
+    float: right;
+    font-weight: normal !important;
+    font-size: 16px;
+	}
+	.activetab .glyphicon-chevron-right {
+    transform: rotate(90deg);
+	}
+  </style>
+
+  										<ul>
+                                            <li>
+                                                <div class="expand" ng-click="expand($event)">
+	                                                <i class="pull-right glyphicon glyphicon-chevron-right"></i>
+	                                                <span><strong>1.</strong> What is Natural Gas?</span>
+                                                </div>
+                                                <div class="detail">
+                                                         <p>Natural Gas is mainly Methane - CH4 with a small percentage of other higher hydrocarbons. The ratio of carbon to hydrogen is least in methane and hence it burns almost completely making it the cleanest fuel. It is produced from the oil / gas wells and transported through a network of pipelines across the country.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="expand" ng-click="expand($event)">
+                                                	<i class="pull-right glyphicon glyphicon-chevron-right"></i>
+                                                	<span><strong>2.</strong> Where is Natural Gas stored?</span>
+                                                </div>
+                                                <div class="detail">
+                                                         <p>Natural Gas cannot be stored it is always flowing &amp; continuously supplied through pipelines.</p>
+                                                </div>
+                                            </li> 
+                                            <li>
+                                                <a class="expand" ng-click="expand($event)">
+                                                <i class="pull-right glyphicon glyphicon-chevron-right"></i>
+                                                <span><strong>3.</strong> About Parent Company, GAIL (India) Limited</span></a>
+                                                <div class="detail">
+                                                         <p>GAIL (India) Limited is a Government of India Undertaking, a youngest Maharatna, which is engaged in the business across the value chain of Natural Gas.</p>
+                                                         <p>Company is involved in activities ranging from Gas transmission and marketing to processing (for fractionating LPG, Propane, SBP Solvent and Pentane) transmission of LPG and production of marketing of petrochemicals.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a class="expand" ng-click="expand($event)">
+                                                <i class="pull-right glyphicon glyphicon-chevron-right"></i>
+                                                <span><strong>4.</strong> About GAIL Gas Limited</span></a>
+                                                <div class="detail">
+                                                         <p>GAIL Gas is a wholly owned subsidiary of Maharatna GAIL (India) Limited for implementation of City Gas Distribution network. GAIL Gas Limited has been authorized by Petroleum and Natural Gas Regulatory Board (PNGRB) for implementing City Gas Distribution projects in Dewas (Madhya Pradesh), Kota (Rajasthan), Sonepat (Haryana) and Meerut (Uttar Pradesh), Taj Trapezium Zone (Uttar Pradesh) and now Bengaluru (Karnataka). GAIL Gas has won the authorization of Haridwar District and North Goa through its consortium with Bharat Petroleum Corporation Limited BPCL.</p>
+                                                     <p>Presently GAIL Gas is supplying Natural Gas to more than 10,000 houses, and 450 Industries in its authorized GAs. GAIL Gas is also supplying CNG through its 16 operational CNG stations.</p>
+                                                </div>
+                                            </li>
+                                            </ul>

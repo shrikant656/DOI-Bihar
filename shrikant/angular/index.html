@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="routerApp">
+<head>
+	<title>Angular</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+	<script src="libraries/angular.js"></script>
+    <script src="libraries/angular-animate.js"></script>
+    <script src="libraries/angular-sanitize.js"></script>
+    <script src="libraries/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="libraries/angular-ui-router.min.js"></script>
+    <script src="libraries/angular-translate.js"></script>
+    <script src="libraries/angular-cookies.js"></script>
+    <script src="libraries/angular-translate-storage-cookie.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="libraries/sweet-alert.min.js"></script>
+    <script type="text/javascript" src="libraries/SweetAlert.js"></script>
+
+    <script src="scripts/app.js"></script>
+
+    <script src="libraries/authentication.service.js"></script>
+    <script src="libraries/flash.service.js"></script>
+
+    <!-- Real user service that uses an api -->
+    <!-- <script src="libraries/user.service.js"></script> -->
+
+    <!-- Fake user service for demo that uses local storage -->
+    <script src="libraries/user.service.local-storage.js"></script>
+    <script src="scripts/lang-en.js"></script>
+    <script src="scripts/lang-hn.js"></script>
+    <script src="login/login.controller.js"></script>
+    <script src="register/register.controller.js"></script>
+    <script src="template/form/form-controller.js"></script>
+    <script src="template/about/about-controller.js"></script>
+    <script src="template/home/home.controller.js"></script>
+    <script src="template/accordion/accordion-controller.js"></script>
+    <script src="template/carousel/carousel-controller.js"></script>
+    <script src="template/others/others-controller.js"></script>
+    <script src="template/pagination/pagination-controller.js"></script>
+</head>
+<body ng-controller="LangCtrl">
+
+	<!-- NAVIGATION -->
+	<nav class="navbar navbar-inverse" role="navigation">
+	    <div class="navbar-header">
+	        <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	        <li><a ui-sref="home">Home</a></li>
+	        <li><a ui-sref="about">About</a></li>
+	        <li><a ui-sref="form">Form</a></li>
+	        <li><select ng-model="productList" ng-change='selectLanguage(productList.lang)' ng-options="product as product.lang for product in products">           
+    		</select></li>
+    		<li>Language by: {{productList.lang}}</li>
+	    </ul>
+	    
+    
+	</nav>
+
+
+	<!-- MAIN CONTENT -->
+	<div class="container">
+		<div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+	    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+	    <div ui-view></div>
+
+	</div>
+
+
+</body>
+</html>

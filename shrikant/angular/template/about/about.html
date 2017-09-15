@@ -1,0 +1,39 @@
+<div class="jumbotron text-center">
+    <h1>The About Page</h1>
+    <p>This page demonstrates <span class="text-danger">multiple</span> and <span class="text-danger">named</span> views.</p>
+</div>
+
+<div class="row">
+    <div class="col-sm-12" ng-controller="AboutCtrl as cntrl">
+        <input type="text" ng-model='cntrl.srchphones'/>
+        <ul>
+            <li ng-repeat="phone in cntrl.phones  | filter: cntrl.srchphones | orderBy: 'name'">
+              <label class="class">
+                <input type="checkbox" ng-model='phone.done'>
+                <span  class="done-{{phone.done}}">{{phone.name}}</span>
+                <button class="btn btn-primary" ng-click="cntrl.deletePhone($index)">Delete</button>
+              </label>
+            </li>
+          </ul>
+        <p>Total number of phones: {{cntrl.phonesPending()}} of {{cntrl.phones.length}} remaining</p>
+        <form ng-submit="cntrl.addphones()">
+          <input type='text' ng-model='cntrl.addphone' placeholder="Add Phones" />
+          <button class="btn btn-default">Add</button>
+        </form>
+    </div>
+</div> 
+
+<div class="row">
+
+    <!-- COLUMN ONE NAMED VIEW -->
+    <div class="col-sm-6">
+        <div ui-view="columnOne"></div>
+    </div>
+
+    <!-- COLUMN TWO NAMED VIEW -->
+    <div class="col-sm-6">
+        <div ui-view="columnTwo"></div>
+    </div>
+
+</div>    
+
